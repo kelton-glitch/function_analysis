@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-import pandas from pandas
 
 class BaseProcessor(ABC):
     """

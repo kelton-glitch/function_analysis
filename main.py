@@ -1,7 +1,7 @@
 """
 Main application - simple orchestration of all components.
 
-Dead simple function analysis system that:
+Simple function analysis system that:
 1. Loads 3 CSV files into SQLite database
 2. Selects 4 ideal functions using least squares
 3. Matches test data to ideal functions
@@ -20,7 +20,7 @@ class SimpleFunctionAnalysis:
     """
     Main analysis system - coordinates all components.
     
-    Dead simple approach with minimal complexity but full functionality.
+    Simple approach with minimal complexity but full functionality.
     """
     
     def __init__(self, db_name="analysis.db"):
@@ -74,6 +74,7 @@ class SimpleFunctionAnalysis:
             print(f"❌ Analysis failed: {e}")
             sys.exit(1)
 
+#uncomment 127-129 to have sample data created for you and the functions analysed
 def create_sample_data():
     """Create sample CSV files for testing."""
     import numpy as np
@@ -123,16 +124,16 @@ def main():
     print("=" * 40)
     
     # Create sample data if files don't exist
-    required_files = ['sample_training.csv', 'sample_ideal.csv', 'sample_test.csv']
-    if not all(os.path.exists(f) for f in required_files):
-        create_sample_data()
+    # required_files = ['dataset/train.csv', 'dataset/ideal.csv', 'dataset/test.csv']
+    # if not all(os.path.exists(f) for f in required_files):
+    #     create_sample_data()
     
     # Run analysis
     analyzer = SimpleFunctionAnalysis()
     analyzer.run_analysis(
-        training_csv='sample_training.csv',
-        ideal_csv='sample_ideal.csv',
-        test_csv='sample_test.csv'
+        training_csv='dataset/train.csv',
+        ideal_csv='dataset/ideal.csv',
+        test_csv='dataset/test.csv'
     )
 
 if __name__ == "__main__":
