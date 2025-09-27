@@ -31,7 +31,7 @@ class Visualizer:
         plots = []
         
         # Training data plot
-        p1 = figure(title="Training Functions", width=600, height=400,
+        p1 = figure(title="Training Functions", width=800, height=600,
                    x_axis_label="x", y_axis_label="y")
         
         colors = ['red', 'blue', 'green', 'orange']
@@ -43,7 +43,7 @@ class Visualizer:
         plots.append(p1)
         
         # Selected ideal functions plot
-        p2 = figure(title="Selected Ideal Functions", width=600, height=400,
+        p2 = figure(title="Selected Ideal Functions", width=800, height=600,
                    x_axis_label="x", y_axis_label="y")
         
         for i, (train_func, ideal_idx) in enumerate(selected_functions.items()):
@@ -57,7 +57,7 @@ class Visualizer:
         
         # Test results plot
         if not results.empty:
-            p3 = figure(title="Test Results", width=600, height=400,
+            p3 = figure(title="Test Results", width=800, height=600,
                        x_axis_label="x", y_axis_label="y")
             
             # Add hover tool
