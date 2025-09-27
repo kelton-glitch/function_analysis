@@ -39,7 +39,7 @@ analyzer.run_analysis(
 ### Run tests
 
 ```bash
-python test_simple.py
+python unittests.py
 ```
 
 ## Architecture

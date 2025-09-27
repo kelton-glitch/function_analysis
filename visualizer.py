@@ -62,9 +62,8 @@ class Visualizer:
             
             # Add hover tool
             hover = HoverTool(tooltips=[
-                ("X", "@x"), ("Y", "@y"),
-                ("Function", "@ideal_function"),
-                ("Deviation", "@deviation{0.000}")
+                ("X", "@x"),
+                ("Y", "@y")
             ])
             p3.add_tools(hover)
             

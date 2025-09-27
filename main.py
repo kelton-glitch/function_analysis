@@ -74,59 +74,11 @@ class SimpleFunctionAnalysis:
             print(f"❌ Analysis failed: {e}")
             sys.exit(1)
 
-#uncomment 127-129 to have sample data created for you and the functions analysed
-def create_sample_data():
-    """Create sample CSV files for testing."""
-    import numpy as np
-    import pandas as pd
-    
-    print("📝 Creating sample data files...")
-    
-    # Sample data
-    x = np.linspace(-10, 10, 100)
-    
-    # Training data (4 functions)
-    training = pd.DataFrame({
-        'x': x,
-        'y1': x**2,
-        'y2': np.sin(x), 
-        'y3': np.cos(x),
-        'y4': x**3 * 0.1
-    })
-    training.to_csv('sample_training.csv', index=False)
-    
-    # Ideal functions (50 functions)
-    ideal = pd.DataFrame({'x': x})
-    for i in range(1, 51):
-        if i <= 10:
-            ideal[f'y{i}'] = x**2 + np.random.normal(0, 0.1, len(x))
-        elif i <= 20:
-            ideal[f'y{i}'] = np.sin(x) + np.random.normal(0, 0.05, len(x))
-        elif i <= 30:
-            ideal[f'y{i}'] = np.cos(x) + np.random.normal(0, 0.05, len(x))
-        else:
-            ideal[f'y{i}'] = x**3 * 0.1 + np.random.normal(0, 0.1, len(x))
-    ideal.to_csv('sample_ideal.csv', index=False)
-    
-    # Test data
-    test_x = np.random.uniform(-10, 10, 50)
-    test = pd.DataFrame({
-        'x': test_x,
-        'y': test_x**2 + np.random.normal(0, 0.5, len(test_x))
-    })
-    test.to_csv('sample_test.csv', index=False)
-    
-    print("✓ Created: sample_training.csv, sample_ideal.csv, sample_test.csv")
 
 def main():
     """Main entry point."""
     print("🚀 Simple Function Analysis System")
     print("=" * 40)
-    
-    # Create sample data if files don't exist
-    # required_files = ['dataset/train.csv', 'dataset/ideal.csv', 'dataset/test.csv']
-    # if not all(os.path.exists(f) for f in required_files):
-    #     create_sample_data()
     
     # Run analysis
     analyzer = SimpleFunctionAnalysis()
